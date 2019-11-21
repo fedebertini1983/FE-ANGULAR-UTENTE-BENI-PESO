@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Lista Persone</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of persone | async">
+                    <td> <input type="text" class="form-control" id="nome"  [(ngModel)]="persona.nome"
+                        name="nome"></td>
+                        <td> <input type="text" class="form-control" id="cognome"  [(ngModel)]="persona.cognome"
+                            name="cognome"></td>
+                    <td> <input type="text" class="form-control" id="email"  [(ngModel)]="persona.email"
+                        name="email" ></td>
+                    <td><button (click)="cancellaPersona(persona.id)" class="btn btn-danger">Delete</button>
+
+                        <button (click)="onUpdate(persona)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+                        <!-- onUpdate(persona) e non onUpdate(), così passi al metodo la persona che stai cercando di modificare-->
+                        <button type="button" class="btn btn-primary" (click)="visualizzaBeni()">Beni Posseduti</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
